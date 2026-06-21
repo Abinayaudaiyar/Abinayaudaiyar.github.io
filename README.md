@@ -1,46 +1,16 @@
-# 👩‍💻 Abinaya Udaiyar – Full Stack Developer
+# React + Vite
 
-Welcome to my personal portfolio repository!  
-I am a passionate **Full Stack Developer** with a strong interest in **Web Development, Artificial Intelligence, and Data Science**. This portfolio showcases my skills, projects, and learning journey.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 🌐 Live Portfolio
-🔗 https://abinayaudaiyar.github.io/
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
----
+## React Compiler
 
-## 🚀 About Me
-- 🎓 Completed **B.Tech in AI & Data Science**
-- 💻 Skilled in building responsive and user-friendly web applications
-- 🌱 Currently improving my Full Stack & AI skills
-- 🎯 Career goal: To become a skilled software developer and contribute to real-world projects
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
----
+## Expanding the ESLint configuration
 
-## 🛠️ Skills
-- **Frontend:** HTML, CSS, JavaScript, React js, Next js, Tailwind CSS, Bootstrap   
-- **Backend:** Python, Node.js, Fast API 
-- **Database:** MySQL, MongoDB  
-- **Tools:** Git, GitHub, VS Code, Postman, Nodemon 
-- **Others:** Vercel, Netlify, Render
-
----
-
-## 📂 Projects
-- 🌾 **AgroTech Nexus** – Farmer market access & fair pricing platform  
-- 📊 **QR Code Generator** using react js  
-- 🌐 **Smart Job Portal** using python and react
-
----
-
-## 📫 Contact Me
-- 📧 Email: abinayaudaiyar@gmail.com  
-- 💼 LinkedIn: https://www.linkedin.com/in/abinaya-udaiyar  
-- 🐙 GitHub: https://github.com/Abinayaudaiyar  
-
----
-
-## ⭐ Acknowledgement
-Thank you for visiting my portfolio repository!  
-Feel free to explore, fork, or connect with me 😊
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
