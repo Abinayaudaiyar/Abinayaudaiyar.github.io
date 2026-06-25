@@ -1,5 +1,4 @@
-import React from 'react';
-import { Award, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Award, ChevronRight } from 'lucide-react';
 
 const CERTIFICATIONS = [
   { name: "Core Python", issuer: "Udemy", link: "https://www.udemy.com/" },

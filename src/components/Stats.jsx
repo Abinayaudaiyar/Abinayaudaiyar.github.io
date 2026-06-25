@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const STATS_ITEMS = [
   { target: 10, suffix: "+", label: "Modules Developed" },
@@ -12,30 +12,7 @@ export default function Stats() {
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          animateCounters();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    const currentRef = sectionRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [hasAnimated]);
-
-  const animateCounters = () => {
+  function animateCounters() {
     const duration = 2000; // 2 seconds animation
     const startTime = performance.now();
 
@@ -61,7 +38,30 @@ export default function Stats() {
     };
 
     requestAnimationFrame(updateCounts);
-  };
+  }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          animateCounters();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [hasAnimated]);
 
   return (
     <section id="stats" ref={sectionRef} className="reveal" style={{ padding: '4rem 2rem' }}>

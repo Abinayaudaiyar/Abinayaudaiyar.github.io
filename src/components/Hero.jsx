@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, ArrowDown, FileText } from 'lucide-react';
 import { Github, Linkedin } from './SocialIcons';
 
@@ -97,7 +97,7 @@ export default function Hero() {
           </div>
 
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+            fontSize: 'clamp(2rem, 6vw, 4rem)',
             fontWeight: 900,
             lineHeight: 1.1,
             letterSpacing: '-0.03em'
@@ -106,7 +106,7 @@ export default function Hero() {
           </h1>
 
           <div style={{
-            fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
+            fontSize: 'clamp(1.2rem, 4vw, 2rem)',
             fontFamily: 'Outfit, sans-serif',
             fontWeight: 700,
             color: '#e2e8f0',
@@ -236,8 +236,8 @@ export default function Hero() {
           {/* Decorative spinning aura */}
           <div style={{
             position: 'absolute',
-            width: '330px',
-            height: '330px',
+            width: 'clamp(260px, 75vw, 330px)',
+            height: 'clamp(260px, 75vw, 330px)',
             borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
             background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)',
             filter: 'blur(30px)',
@@ -247,8 +247,8 @@ export default function Hero() {
 
           {/* Profile Picture Frame */}
           <div className="glass-panel" style={{
-            width: '300px',
-            height: '300px',
+            width: 'clamp(240px, 70vw, 300px)',
+            height: 'clamp(240px, 70vw, 300px)',
             borderRadius: '24px',
             padding: '12px',
             display: 'flex',

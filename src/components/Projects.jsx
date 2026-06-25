@@ -1,4 +1,3 @@
-import React from 'react';
 import { ExternalLink, ShieldCheck, TrendingUp, Sprout, QrCode } from 'lucide-react';
 import { Github } from './SocialIcons';
 
@@ -92,7 +91,7 @@ export default function Projects() {
       </div>
 
       <div className="projects-grid" style={{
-        gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 290px), 1fr))',
         gap: '2rem'
       }}>
         {PROJECTS.map((proj, idx) => (

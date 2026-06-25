@@ -482,7 +482,7 @@ section {
 /* Skill Tags & Cards */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
@@ -536,7 +536,7 @@ section {
 /* Project Cards */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2.5rem;
 }
 
@@ -656,7 +656,7 @@ section {
 /* Service Cards */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 2rem;
 }
 
@@ -701,7 +701,7 @@ section {
 /* Stats Section */
 .stats-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   gap: 2.5rem;
   text-align: center;
   margin-top: 2rem;
@@ -734,7 +734,7 @@ section {
 /* Achievements Section */
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
 }
 
@@ -1070,19 +1070,82 @@ textarea.form-input {
   .form-group-row .form-group {
     margin-bottom: 1.5rem;
   }
+
+  /* Card padding scaling */
+  .education-card,
+  .skill-category-card,
+  .project-card,
+  .service-card,
+  .achievement-card,
+  .contact-form-panel {
+    padding: 1.5rem !important;
+  }
+
+  .timeline-item {
+    padding-left: 3rem;
+  }
+
+  .timeline::after {
+    left: 16px;
+  }
+
+  .timeline-item.left::after,
+  .timeline-item.right::after {
+    left: 8px;
+  }
+
+  .timeline-card {
+    padding: 1.25rem;
+  }
+
+  /* Back to top adjustment on mobile */
+  .back-to-top-btn {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Contact info card word break */
+  .contact-card-content p {
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
 }
 
 @media (max-width: 480px) {
   .timeline-item {
-    padding-left: 3.5rem;
+    padding-left: 2rem;
   }
   
   .timeline::after {
-    left: 20px;
+    left: 8px;
   }
   
   .timeline-item.left::after,
   .timeline-item.right::after {
-    left: 12px;
+    left: 0px;
+  }
+
+  .education-card,
+  .skill-category-card,
+  .project-card,
+  .service-card,
+  .achievement-card,
+  .contact-form-panel {
+    padding: 1.25rem !important;
+  }
+
+  .project-features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .education-gpa {
+    align-self: flex-start;
   }
 }

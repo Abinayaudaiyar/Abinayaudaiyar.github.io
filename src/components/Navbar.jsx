@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 const NAV_ITEMS = [
@@ -65,6 +65,18 @@ export default function Navbar() {
       window.removeEventListener('scroll', handleHeroSpy);
     };
   }, []);
+
+  // Handle mobile menu scroll lock
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
@@ -210,7 +222,8 @@ export default function Navbar() {
         display: 'flex',
         flexDirection: 'column',
         gap: '1.5rem',
-        backdropFilter: 'blur(20px)'
+        backdropFilter: 'blur(20px)',
+        overflowY: 'auto'
       }}>
         {NAV_ITEMS.map((item) => {
           const isActive = activeSection === item.id;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Layout, Server, Database, Terminal, Cpu } from 'lucide-react';
 
 const SKILL_CATEGORIES = [

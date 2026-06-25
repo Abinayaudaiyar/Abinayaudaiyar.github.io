@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Mail, Send, CheckCircle2 } from 'lucide-react';
 import { Github, Linkedin } from './SocialIcons';
 
@@ -17,22 +17,47 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
-    // Mock API request delay
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Auto-hide success alert
+    
+    const webhookUrl = import.meta.env.VITE_CONTACT_FORM_WEBHOOK;
+
+    if (!webhookUrl) {
+      // Demo mock behavior for local development when .env is not set up
+      console.warn("VITE_CONTACT_FORM_WEBHOOK is not defined. Falling back to demo mode.");
       setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
-    }, 1500);
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, 1000);
+      return;
+    }
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8', // Bypass CORS preflight in Google Apps Script
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.status === 'success') {
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert("Failed to send message: " + (result.message || "Unknown error"));
+      }
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      alert("An error occurred while sending the message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Shield, Database, Layout, BrainCircuit } from 'lucide-react';
 
 export default function About() {
